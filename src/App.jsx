@@ -36,7 +36,7 @@ const navItems = [
   { label: "My Devices", path: "/devices", icon: Smartphone },
   { label: "Service Centers", path: "/centers", icon: Store },
   { label: "Repairs", path: "/repairs", icon: Wrench, count: "2" },
-  { label: "RepairPass", path: "/repairpass", icon: ShieldCheck },
+  { label: "Fixora", path: "/repairpass", icon: ShieldCheck },
 ];
 const devices = [
   {
@@ -189,7 +189,7 @@ function routeName(path) {
   if (path.startsWith("/request")) return "Create Repair Request";
   if (path.startsWith("/tracking")) return "Repair Tracking";
   if (path.startsWith("/repairs")) return "Repairs";
-  return "RepairPass";
+  return "Fixora";
 }
 
 function App() {
@@ -339,7 +339,7 @@ function Sidebar({ activePath, navigate, mobileNavOpen, closeMobile }) {
           <Wrench size={18} strokeWidth={2.6} />
         </div>
         <span>
-          repair<span>pass</span>
+          fix<span>ora</span>
         </span>
         <button
           className="mobile-close"
@@ -390,7 +390,7 @@ function Sidebar({ activePath, navigate, mobileNavOpen, closeMobile }) {
           <span>Settings</span>
         </button>
         <div className="sidebar-meta">
-          <span>RepairPass for a better repair</span>
+          <span>Fixora for a better repair</span>
           <span>v1.0.0</span>
         </div>
       </div>
@@ -486,7 +486,7 @@ function Dashboard({ navigate, openDevice }) {
         <article className="pass-card">
           <div className="pass-pattern" />
           <div className="pass-top">
-            <span className="section-kicker">Your RepairPass</span>
+            <span className="section-kicker">Your Fixora</span>
             <ShieldCheck size={22} />
           </div>
           <h2>
@@ -638,7 +638,7 @@ function QuickActions({ navigate }) {
           </span>
           <span>
             <strong>Register a device</strong>
-            <small>Add a new device to RepairPass</small>
+            <small>Add a new device to Fixora</small>
           </span>
           <ArrowUpRight size={16} />
         </button>
@@ -676,7 +676,7 @@ function DevicesPage({ openDevice }) {
         action="Register a device"
         onAction={() =>
           window.alert(
-            "Device registration will be available in the next RepairPass release.",
+            "Device registration will be available in the next Fixora release.",
           )
         }
       />
@@ -800,7 +800,7 @@ function DeviceDetails({ device, navigate, openModal }) {
         <div className="identity-copy">
           <span className="section-kicker">Your device identity</span>
           <h2>
-            RepairPass ID <strong>{device.repairPassId}</strong>
+            Fixora ID <strong>{device.repairPassId}</strong>
           </h2>
           <p>
             This identifier keeps the verified service history connected to this
@@ -811,7 +811,7 @@ function DeviceDetails({ device, navigate, openModal }) {
               className="secondary-button"
               onClick={() => navigate("/repairpass")}
             >
-              <ShieldCheck size={16} /> View RepairPass
+              <ShieldCheck size={16} /> View Fixora
             </button>
             <button
               className="text-button"
@@ -1126,7 +1126,7 @@ function TrackingPage({ device, center, request, navigate }) {
             className="secondary-button"
             onClick={() => navigate("/repairpass")}
           >
-            <ShieldCheck size={16} /> View RepairPass record
+            <ShieldCheck size={16} /> View Fixora record
           </button>
         </aside>
       </section>
@@ -1178,7 +1178,7 @@ function RepairPassPage({ openModal, device }) {
     <>
       <PageHeader
         eyebrow="Your permanent record"
-        title="RepairPass"
+        title="Fixora"
         copy="Your device's permanent service history."
       />
       <section className="pass-hero">
@@ -1193,7 +1193,7 @@ function RepairPassPage({ openModal, device }) {
             <em>with your device.</em>
           </h2>
           <p>
-            RepairPass keeps every authorized service record connected to the
+            Fixora keeps every authorized service record connected to the
             devices you own, so their story is always clear.
           </p>
         </div>
@@ -1227,7 +1227,7 @@ function RepairPassPage({ openModal, device }) {
             <span className="section-kicker">Your records</span>
             <h2>Completed service history</h2>
           </div>
-          <span className="record-count">Verified by RepairPass</span>
+          <span className="record-count">Verified by Fixora</span>
         </div>
         <div className="record-grid">
           {repairHistory.map((record) => (
@@ -1378,10 +1378,10 @@ function DemoModal({ modal, close, device }) {
   }
   if (["search", "notifications", "settings"].includes(modal.type)) {
     const messages = {
-      search: "Search is ready for the next RepairPass release.",
+      search: "Search is ready for the next Fixora release.",
       notifications:
         "You are all caught up. New repair updates will appear here.",
-      settings: "Settings will be available in the next RepairPass release.",
+      settings: "Settings will be available in the next Fixora release.",
     };
     return (
       <div className="modal-backdrop" onClick={close}>
@@ -1424,7 +1424,7 @@ function DemoModal({ modal, close, device }) {
               Share a read-only view of this device's verified service history.
             </p>
             <div className="share-link">
-              repairpass.app/p/{device.repairPassId}
+              fixora.app/p/{device.repairPassId}
               <button aria-label="Copy share link" onClick={close}>
                 <ClipboardCheck size={16} />
               </button>
@@ -1444,7 +1444,7 @@ function DemoModal({ modal, close, device }) {
                 Device<strong>{device.name}</strong>
               </span>
               <span>
-                RepairPass ID<strong>{device.repairPassId}</strong>
+                Fixora ID<strong>{device.repairPassId}</strong>
               </span>
               <span>
                 Verified repairs
